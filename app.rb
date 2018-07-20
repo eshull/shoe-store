@@ -42,18 +42,24 @@ get("/shoes/:id") do
 end
 
 get("/stores/:id") do
-  binding.pry
+  @stores = Store.all
   @store = Store.find(params.fetch("id").to_i())
   @shoes = Shoe.all
   erb(:store)
 end
 
 delete ("/stores/:id") do
-  binding.pry
   @store = Store.find(params.fetch("id").to_i())
   @store.delete()
   @stores = Store.all
   erb(:stores)
+end
+
+patch ('/stores/:id') do
+  new_store_name = params.fetch("new_store_name")
+  @store = Store.find(params.fetch("id").to_i())
+  @store.update({:name => new_store_name})
+  redirect back
 end
 
 patch("/shoes/:id") do
