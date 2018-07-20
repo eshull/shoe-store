@@ -10,6 +10,7 @@ end
 
 get("/shoes") do
   @shoes = Shoe.all()
+  @stores = Store.all()
   erb(:shoes)
 end
 
@@ -70,7 +71,7 @@ patch("/shoes/:id") do
   redirect back
 end
 
-patch("/stores/:id") do
+post("/stores/:id") do
   shoe = Shoe.find(params.fetch("shoe_id").to_i())
   @store = Store.find(params.fetch("id").to_i())
   @store.shoes.push(shoe)

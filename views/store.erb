@@ -18,7 +18,7 @@
 
 <p>Add a shoe to this store:<p>
 <form id="add_shoe_id" action="/stores/<%= @store.id() %>" method="post">
-  <input name="_method" type="hidden" value="patch">
+  <input name="_method" type="hidden" value="post">
   <input type="hidden" name="store_id" id="store_id" value="<%= @store.id() %>">
   <label for="shoe_id">Select a Shoe: </label>
     <br>
