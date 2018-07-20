@@ -5,7 +5,7 @@
   <h3>Here are the shoes currently assigned to this store:</h3>
   <ul>
     <% @store.shoes.each() do |store_shoe| %>
-      <li><%= store_shoe.name %></li>
+      <li><%= store_shoe.brand %></li>
     <% end %>
   </ul>
 
@@ -25,8 +25,16 @@
   <select id="shoe_id" name="shoe_id">
     <option value=""></option>
     <% @shoes.each() do |shoe| %>
-      <option value="<%= shoe.id() %>"><%= shoe.name() %></option>
+      <option value="<%= shoe.id() %>"><%= shoe.brand() %></option>
     <% end %>
   </select>
   <button type="submit">Submit</button>
+</form>
+
+<h1>Delete a Store</h1>
+
+<form action="/stores/<%= @store.id %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button class="btn btn-danger" type="submit">Delete Store</button>
 </form>

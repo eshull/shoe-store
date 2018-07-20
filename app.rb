@@ -42,9 +42,18 @@ get("/shoes/:id") do
 end
 
 get("/stores/:id") do
+  binding.pry
   @store = Store.find(params.fetch("id").to_i())
   @shoes = Shoe.all
   erb(:store)
+end
+
+delete ("/stores/:id") do
+  binding.pry
+  @store = Store.find(params.fetch("id").to_i())
+  @store.delete()
+  @stores = Store.all
+  erb(:stores)
 end
 
 patch("/shoes/:id") do
