@@ -18,7 +18,11 @@
 </form>
 
 <% if @store %>
-  <h3> Currently available at: <%= @store.name %> </h3>
+  <% @stores.each() do |store| %>
+    <ul>
+        <li><h3> Currently available at: <%= store.name %> </h3></li>
+    </ul>
+  <% end %>
 
 <% else %>
     <p><strong>Shoe Brand <%= @shoe.brand() %> is not available at any store.</strong></p>
