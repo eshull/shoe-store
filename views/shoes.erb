@@ -13,7 +13,7 @@
 
   <% @shoes.each() do |shoe| %>
 
-  <li><a href="/shoes/<%= shoe.id() %>"><%= shoe.brand() %></a></li>
+  <li><a href="/shoes/<%= shoe.id() %>"><%= shoe.brand() %> $<%= shoe.price() %></a></li>
 
   <% end %>
 
@@ -24,5 +24,7 @@
 <form action="/shoes" method="post">
   <label for="shoe_name">Shoe Name:  </label>
   <input type="text" name="shoe_name" id="shoe_name">
+  <label for="shoe_price">Shoe Price:  </label>
+  <input type="text" name="shoe_price" id="shoe_price">
   <button type="submit">Add Shoe</button>
 </form>

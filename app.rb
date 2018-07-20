@@ -20,7 +20,8 @@ end
 
 post("/shoes") do
   name = params.fetch("shoe_name")
-  Shoe.create({:brand => name})
+  price = params.fetch("shoe_price")
+  Shoe.create({:brand => name, :price => price})
   redirect("/shoes")
 end
 
