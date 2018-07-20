@@ -11,6 +11,7 @@ gem("rake")
 gem("pg")
 gem("sinatra")
 gem 'thin'
+gem 'money'
 
 group(:test) do
   gem("rspec")
