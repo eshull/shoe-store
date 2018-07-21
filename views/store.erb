@@ -2,7 +2,7 @@
 <hr>
 
 <% if @store.shoes.any? %>
-  <h3>Here are the shoes currently assigned to this store:</h3>
+  <h3>Here are the shoes available at <%= @store.name() %></h3>
   <ul>
     <% @store.shoes.each() do |store_shoe| %>
       <li><%= store_shoe.brand %></li>

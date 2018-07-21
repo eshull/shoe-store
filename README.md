@@ -21,7 +21,8 @@ A site that organizes shoe stores and the brands of shoes that are in the stores
 
 ## Technologies Used
 
-* Ruby 2.4.1
+* Ruby 2.3.4
+* ActiveRecord
 * rspec
 * Sinatra
 * Capybara

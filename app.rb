@@ -68,6 +68,7 @@ patch("/shoes/:id") do
   store_id = params.fetch("store_id").to_i()
   @shoe = Shoe.find(params.fetch("id").to_i())
   @shoe.update({:store_id => store_id})
+  @store = @shoe.store_id
   redirect back
 end
 

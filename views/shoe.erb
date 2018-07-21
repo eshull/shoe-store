@@ -17,11 +17,11 @@
   <button type="submit">Submit</button>
 </form>
 
-<% if @store %>
-  <% @stores.each() do |store| %>
+<% if @store != nil %> 
+<h3> Currently available at: <%= @store.name %> </h3>
+  <% @store.shoes.each() do |shoe| %>
     <ul>
-        <li><h3> Currently available at: <%= store.name %> </h3></li>
-        <li><h3> Currently available att: <%= @shoe.stores.name %> </h3></li>
+        <li><%= shoe.brand %> <%= shoe.price %> </li>
     </ul>
   <% end %>
 
