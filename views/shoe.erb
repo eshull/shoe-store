@@ -3,7 +3,6 @@
 <hr>
 
 
-
 <h4>Assign <%= @shoe.brand() %> to a store:</h4>
 <form id="update_store_id" action="/shoes/<%= @shoe.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
@@ -18,25 +17,11 @@
   <button type="submit">Submit</button>
 </form>
 
-<% if @store != nil %>
-<h3> Currently available at: <%= @store.name %> </h3>
-  <% @store.shoes.each() do |shoe| %>
+<% if @shoe.stores.any? %>
+<h3> Currently available at the following stores: </h3>
+  <% @shoe.stores.each() do |shoe| %>
     <ul>
-        <li><%= shoe.brand %> <%= shoe.price %> </li>
-    </ul>
-  <% end %>
-
-<% else %>
-    <p><strong>Shoe Brand <%= @shoe.brand() %> is not available at any store.</strong></p>
-    <br>
-    <p><a href="/stores">Add a store to the database here</a></p>
-    <p><a href="/shoes">Add a shoe to a store here</a></p>
-<% end %>
-<% if @store %>
-<h3> Currently available at: <%= @store.shoes.name %> </h3>
-  <% @store.shoes.each() do |shoe| %>
-    <ul>
-        <li><%= shoe.brand %> <%= shoe.price %> </li>
+        <li><%= shoe_store.name %> </li>
     </ul>
   <% end %>
 

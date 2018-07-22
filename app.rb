@@ -21,8 +21,11 @@ end
 
 post("/shoes") do
   name = params.fetch("shoe_name")
-  price = params.fetch("shoe_price")
+  price_input = params.fetch("shoe_price")
+  # price_int = format("$%.2f",price_input)
+  price = price_input.to_f
   Shoe.create({:brand => name, :price => price})
+  # binding.pry
   redirect("/shoes")
 end
 
@@ -40,6 +43,7 @@ get("/shoes/:id") do
     @store = nil
   end
   @stores = Store.all
+  # binding.pry
   erb(:shoe)
 end
 
@@ -68,7 +72,11 @@ patch("/shoes/:id") do
   store_id = params.fetch("store_id").to_i()
   @shoe = Shoe.find(params.fetch("id").to_i())
   @shoe.update({:store_id => store_id})
-  @store = @shoe.store_id
+  # @store = @shoe.store_id
+  # @store = Store.find(@store)
+  # @store.update({:shoe_id => store_id})
+
+  # binding.pry
   redirect back
 end
 
