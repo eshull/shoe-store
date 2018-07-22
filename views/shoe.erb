@@ -18,10 +18,11 @@
 </form>
 
 <% if @shoe.stores.any? %>
+<% binding.pry %>
 <h3> Currently available at the following stores: </h3>
-  <% @shoe.stores.each() do |shoe| %>
+  <% @shoe.stores.each() do |store_shoe| %>
     <ul>
-        <li><%= shoe_store.name %> </li>
+        <li><%= store_shoe.name %> </li>
     </ul>
   <% end %>
 
