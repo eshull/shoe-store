@@ -1,6 +1,6 @@
 require('spec_helper')
 
-describe('Ability to add new shoe brand', {:type => :feature}) do
+describe('New shoe brand functionality', {:type => :feature}) do
   it('allows a user to add a new shoe brand') do
     visit('/')
     click_link('Shoes')
@@ -10,13 +10,16 @@ describe('Ability to add new shoe brand', {:type => :feature}) do
     expect(page).to have_content('Nike $10')
   end
 end
-#   it('allows a user to view details for a single employee') do
-#     visit('/employees')
-#     fill_in('employee_name', :with => "Lulu Beansy")
-#     click_button('Add Employee')
-#     click_link("Lulu Beansy")
-#     expect(page).to have_content('Employee: Lulu Beansy')
-#   end
+describe('New shoe brand functionality', {:type => :feature}) do
+  it('allows a user to view details for a shoe brand') do
+    visit('/shoes')
+    fill_in('shoe_name', :with => "reebok")
+    fill_in('shoe_price', :with => "10")
+    click_button('Add Shoe')
+    click_link("Reebok $10")
+    expect(page).to have_content('Shoe Brand: Reebok')
+  end
+end
 #
 #   it('allows a user to associate a project with an employee') do
 #     visit('/projects')
