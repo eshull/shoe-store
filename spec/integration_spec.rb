@@ -20,17 +20,18 @@ describe('New shoe brand functionality', {:type => :feature}) do
     expect(page).to have_content('Shoe Brand: Reebok')
   end
 end
-#
-#   it('allows a user to associate a project with an employee') do
-#     visit('/projects')
-#     fill_in('project_name', :with => "Book incineration project")
-#     click_button('Add Project')
-#     click_link('View Employees')
-#     fill_in('employee_name', :with => "Guy Montagues")
-#     click_button('Add Employee')
-#     click_link("Guy Montague")
-#     select("book incineration project", :from => "project_id")
-#     click_button("Submit")
-#     expect(page).to have_content('book incineration project')
-#   end
-# end
+describe('New shoe brand functionality', {:type => :feature}) do
+  it('allows a user to associate a shoe with a store') do
+    visit('/stores')
+    fill_in('store_name', :with => "payless")
+    click_button('Add Store')
+    visit('/shoes')
+    fill_in('shoe_name', :with => "reebok")
+    fill_in('shoe_price', :with => "10")
+    click_button('Add Shoe')
+    click_link('Reebok $10')
+    select("Payless", :from => "store_id")
+    click_button("Submit")
+    expect(page).to have_content('Payless')
+  end
+end
