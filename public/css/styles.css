@@ -10,3 +10,7 @@ body {
 button, select {
     width: 300px;
 }
+
+.box_style {
+  margin-top: 50px;
+}

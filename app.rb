@@ -23,7 +23,7 @@ post("/shoes") do
   name = params.fetch("shoe_name")
   price_input = params.fetch("shoe_price")
   # price_int = format("$%.2f",price_input)
-  price = price_input.to_f
+  price = price_input
   Shoe.create({:brand => name, :price => price})
   # binding.pry
   redirect("/shoes")

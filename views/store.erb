@@ -1,49 +1,54 @@
+
 <h2> <%= @store.name() %></h2>
 <hr>
+<div class="box_style">
+  <% if @store.shoes.any? %>
+    <h3>Here are the shoes available at <%= @store.name() %></h3>
+    <ul>
+      <% @store.shoes.each() do |store_shoe| %>
+        <li><%= store_shoe.brand %></li>
+      <% end %>
+    </ul>
 
-<% if @store.shoes.any? %>
-  <h3>Here are the shoes available at <%= @store.name() %></h3>
-  <ul>
-    <% @store.shoes.each() do |store_shoe| %>
-      <li><%= store_shoe.brand %></li>
-    <% end %>
-  </ul>
+  <% else %>
 
-<% else %>
+      <p><strong>There are currently no shoes assigned to this store.</strong></p>
+      <br>
 
-    <p><strong>There are currently no shoes assigned to this store.</strong></p>
-    <br>
+  <% end %>
+</div>
 
-<% end %>
+<div class="box_style">
+  <p>Add a shoe to this store:<p>
+  <form id="add_shoe_id" action="/stores/<%= @store.id() %>" method="post">
+    <input name="_method" type="hidden" value="post">
+    <input type="hidden" name="store_id" id="store_id" value="<%= @store.id() %>">
+    <label for="shoe_id">Select a Shoe: </label>
+      <br>
+    <select id="shoe_id" name="shoe_id">
+      <option value=""></option>
+      <% @shoes.each() do |shoe| %>
+        <option value="<%= shoe.id() %>"><%= shoe.brand() %></option>
+      <% end %>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
-<p>Add a shoe to this store:<p>
-<form id="add_shoe_id" action="/stores/<%= @store.id() %>" method="post">
-  <input name="_method" type="hidden" value="post">
-  <input type="hidden" name="store_id" id="store_id" value="<%= @store.id() %>">
-  <label for="shoe_id">Select a Shoe: </label>
-    <br>
-  <select id="shoe_id" name="shoe_id">
-    <option value=""></option>
-    <% @shoes.each() do |shoe| %>
-      <option value="<%= shoe.id() %>"><%= shoe.brand() %></option>
-    <% end %>
-  </select>
-  <button type="submit">Submit</button>
-</form>
+<div class="box_style">
+  <h1>Update the <%= @store.name() %> Store</h1>
+  <form action="/stores/<%= @store.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <label for="new_store_name">Edit the Store: <%= @store.name %></label>
+    <input id="title" type="text" name="new_store_name">
+    <button type="submit" class="btn btn-info">Update</button>
+  </form>
 
-<h1>Update the <%= @store.name() %> Store</h1>
+  <h1>Delete the <%= @store.name() %> Store</h1>
 
-<form action="/stores/<%= @store.id %>" method="post">
-  <input name="_method" type="hidden" value="patch">
-  <label for="new_store_name">Edit the Project: <%= @store.name %></label>
-  <input id="title" type="text" name="new_store_name">
-  <button type="submit" class="btn btn-info">Update</button>
-</form>
+  <form action="/stores/<%= @store.id %>" method="post">
+    <input name="_method" type="hidden" value="delete">
 
-<h1>Delete the <%= @store.name() %> Store</h1>
-
-<form action="/stores/<%= @store.id %>" method="post">
-  <input name="_method" type="hidden" value="delete">
-
-  <button class="btn btn-danger" type="submit">Delete</button>
-</form>
+    <button class="btn btn-danger" type="submit">Delete</button>
+  </form>
+</div>

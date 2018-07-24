@@ -7,16 +7,12 @@
 <p>There are currently no shoes in the database</p>
 
 <% else %>
-<h3>Stores Carrying Brands of Shoes:</h3>
-<% @stores.each() do |store| %>
-<li><a href="/store/<%= store.id() %>">Store Name: <%= store.name() %> Shoes in Store: <%= store.name %></a></li>
 
-<% end %>
 <p>Current Shoes</p>
 <ul>
   <% @shoes.each() do |shoe| %>
 
-  <li><a href="/shoes/<%= shoe.id() %>"><%= shoe.brand() %> $<%= shoe.price() %> <%= shoe.store_id %></a></li>
+  <li><%= shoe.brand() %> $<%= sprintf("%.2f", shoe.price().to_f) %> <%= shoe.store_id %></li>
 
   <% end %>
 

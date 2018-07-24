@@ -16,19 +16,3 @@
   </select>
   <button type="submit">Submit</button>
 </form>
-
-<% if @shoe.stores.any? %>
-<% binding.pry %>
-<h3> Currently available at the following stores: </h3>
-  <% @shoe.stores.each() do |store_shoe| %>
-    <ul>
-        <li><%= store_shoe.name %> </li>
-    </ul>
-  <% end %>
-
-<% else %>
-    <p><strong>Shoe Brand <%= @shoe.brand() %> is not available at any store.</strong></p>
-    <br>
-    <p><a href="/stores">Add a store to the database here</a></p>
-    <p><a href="/shoes">Add a shoe to a store here</a></p>
-<% end %>
