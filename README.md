@@ -27,6 +27,32 @@ A site that organizes shoe stores and the brands of shoes that are in the stores
 * Sinatra
 * Capybara
 
+
+Installation
+------------
+
+```
+$ git clone https://github.com/eshull/shoe-store
+```
+
+Install required gems:
+```
+$ bundle install
+```
+
+Create databases:
+```
+rake db:create
+rake db:schema:load
+```
+
+Start the webserver:
+```
+$ ruby app.rb
+```
+
+Navigate to `localhost:4567` in browser.
+
 ## Specs/Steps
 
   * As a user, I want to be able to add, update, delete and list shoe stores.
